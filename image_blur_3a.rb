@@ -10,12 +10,12 @@ class Image
 
   def generate_ones
     ones = []
-    @image.each_with_index do |row, x_index|
-      row.each_with_index do |cell, y_index|
-        ones << [x_index, y_index] if cell == 1
+    @image.each_with_index do |row, y_index|
+      row.each_with_index do |cell, x_index|
+        ones << [y_index, x_index] if cell == 1
       end
     end
-    ones
+    ones #each y-x coordinate pair is stored as a 2-element array
   end
 
   def manhattan_distance (origin_coords, destination_coords)
@@ -28,7 +28,7 @@ class Image
     @image.each_with_index do |row, y_index|
       row.each_with_index do |cell, x_index|
         one_coords.each do |origin_coords|
-          if manhattan_distance(origin_coords, [x_index, y_index]) <= distance
+          if manhattan_distance(origin_coords, [y_index, x_index]) <= distance #for each cell in the 2D array, check if each 1's Y-X coordinates is within the manhattan distance of X of it
             @image[x_index][y_index] = 1
           end
         end
