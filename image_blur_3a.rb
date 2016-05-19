@@ -8,7 +8,7 @@ class Image
     @image.each {|row| puts row.join}
   end
 
-  def generate_ones
+  def find_ones
     ones = []
     @image.each_with_index do |row, y_index|
       row.each_with_index do |cell, x_index|
@@ -23,7 +23,7 @@ class Image
   end
 
   def blur! (distance)
-    one_coords = generate_ones
+    one_coords = find_ones
 
     @image.each_with_index do |row, y_index|
       row.each_with_index do |cell, x_index|
