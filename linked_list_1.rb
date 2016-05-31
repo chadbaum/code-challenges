@@ -26,7 +26,6 @@ class Stack
 
     # Push a value onto the stack
     def push(value)
-        # IMPLEMENT ME!
         @data = LinkedListNode.new(value, @data)
     end
 
@@ -48,7 +47,7 @@ def reverse_list(list)
         stack.push(list.value)
         list = list.next_node
     end
-    
+
     LinkedListNode.new(stack.pop, stack.data)
 end
 
