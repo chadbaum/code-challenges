@@ -5,6 +5,24 @@ def recursive_fib(num)
 
 end
 
+@cache = []
+def recursive_fib_2(num)
+
+  return num if num < 2
+
+  a = @cache[num - 1]
+  b = @cache[num - 2]
+  if a.nil?
+    a = recursive_fib(num - 1)
+    @cache[num - 1] = a
+  end
+  if b.nil?
+    b = recursive_fib(num - 2)
+    @cache[num - 2] = b
+  end
+  a + b
+
+end
 
 
 def iterative_fib(num)
